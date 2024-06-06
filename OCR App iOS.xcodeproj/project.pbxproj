@@ -11,6 +11,8 @@
 		0E29381A2C0FF30F002287D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2938192C0FF30F002287D8 /* ContentView.swift */; };
 		0E29381C2C0FF310002287D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E29381B2C0FF310002287D8 /* Assets.xcassets */; };
 		0E29381F2C0FF310002287D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E29381E2C0FF310002287D8 /* Preview Assets.xcassets */; };
+		0E86A6002C11FA35008F00DA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A5FF2C11FA35008F00DA /* CameraView.swift */; };
+		0E86A6022C11FABF008F00DA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A6012C11FABF008F00DA /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		0E2938192C0FF30F002287D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E29381B2C0FF310002287D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E29381E2C0FF310002287D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0E86A5FF2C11FA35008F00DA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0E86A6012C11FABF008F00DA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,8 @@
 		0E29380B2C0FF30F002287D8 = {
 			isa = PBXGroup;
 			children = (
+				0E86A6012C11FABF008F00DA /* SettingsView.swift */,
+				0E86A5FF2C11FA35008F00DA /* CameraView.swift */,
 				0E2938162C0FF30F002287D8 /* OCR App iOS */,
 				0E2938152C0FF30F002287D8 /* Products */,
 			);
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E86A6002C11FA35008F00DA /* CameraView.swift in Sources */,
+				0E86A6022C11FABF008F00DA /* SettingsView.swift in Sources */,
 				0E29381A2C0FF30F002287D8 /* ContentView.swift in Sources */,
 				0E2938182C0FF30F002287D8 /* OCR_App_iOSApp.swift in Sources */,
 			);

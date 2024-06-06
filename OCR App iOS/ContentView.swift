@@ -10,15 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            VStack {
-                Image(systemName: "camera")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Filler base app, more to come soon")
-            }
-            .tabItem {
-                Label("Camera", systemImage: "camera")
-            }
+            CameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "camera")
+                }
             
             VStack {
                 Image(systemName: "house")
@@ -30,15 +25,10 @@ struct ContentView: View {
                 Label("Home", systemImage: "house")
             }
             
-            VStack {
-                Image(systemName: "gear")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Filler base app, more to come soon")
-            }
-            .tabItem {
-                Label("Settings", systemImage: "gear")
-            }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
         .padding()
     }
