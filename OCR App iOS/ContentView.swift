@@ -9,11 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "camera")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Filler base app, more to come soon")
+        TabView {
+            VStack {
+                Image(systemName: "camera")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Filler base app, more to come soon")
+            }
+            .tabItem {
+                Label("Camera", systemImage: "camera")
+            }
+            
+            VStack {
+                Image(systemName: "house")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Filler base app, more to come soon")
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+            
+            VStack {
+                Image(systemName: "gear")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Filler base app, more to come soon")
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gear")
+            }
         }
         .padding()
     }
