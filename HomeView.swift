@@ -19,8 +19,6 @@ struct HomeView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 
-              
-                
                 // Quick Actions Section
                 VStack(spacing: 15) {
                     Text("Quick Actions")
@@ -47,7 +45,6 @@ struct HomeView: View {
                             Text("Home")
                                 .foregroundColor(.white)
                                 .font(.caption)
-
                         }
                         VStack {
                             Image(systemName: "gear")
@@ -57,13 +54,28 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                             Text("Settings")
                                 .foregroundColor(.white)
-                            
                         }
                     }
                 }
                 .padding()
                 .background(Color.black.opacity(0.3))
                 .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(
+                            LinearGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: Color.white.opacity(0.50), location: 0),
+                                    .init(color: Color.white.opacity(0.0), location: 0.25),
+                                    .init(color: Color.white.opacity(0.0), location: 0.75),
+                                    .init(color: Color.white.opacity(0.35), location: 1)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 2
+                        )
+                )
                 .shadow(radius: 10)
                 
                 Spacer()
@@ -79,7 +91,6 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.green)
                         .cornerRadius(100)
-                        
                 }
                 .padding(.horizontal)
             }

@@ -26,7 +26,22 @@ struct SettingsView: View {
                 .padding()
                 .background(Color.black.opacity(0.3))
                 .cornerRadius(10)
-                .shadow(radius: 10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(
+                            LinearGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: Color.white.opacity(0.50), location: 0),
+                                    .init(color: Color.white.opacity(0.0), location: 0.25),
+                                    .init(color: Color.white.opacity(0.0), location: 0.75),
+                                    .init(color: Color.white.opacity(0.35), location: 1)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 2
+                        )
+                )
                 
                 Spacer()
             }
@@ -56,7 +71,22 @@ struct SettingOptionView: View {
         .padding()
         .background(Color.black.opacity(0.3))
         .cornerRadius(10)
-        .shadow(radius: 10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(
+                    LinearGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: Color.white.opacity(0.25), location: 0),
+                            .init(color: Color.white.opacity(0.0), location: 0.25),
+                            .init(color: Color.white.opacity(0.0), location: 0.75),
+                            .init(color: Color.white.opacity(0.15), location: 1)
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 2
+                )
+        )
     }
 }
 
