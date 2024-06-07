@@ -4,9 +4,9 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             // Background
-            LinearGradient(gradient: Gradient(colors: [Color(hex: "#457B9D"), Color.black]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
+            LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.black]),
+                           startPoint: .top,
+                           endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
             
             // Content
@@ -14,20 +14,12 @@ struct HomeView: View {
                 // Top Image
                 
                 // Welcome Text
-                Text("Welcome to OCR App")
+                Text("OCRadar")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 
-                // Description Text
-                Text("Filler text")
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .background(Color.black.opacity(0.3))
-                    .cornerRadius(10)
-                    .shadow(radius: 10)
+              
                 
                 // Quick Actions Section
                 VStack(spacing: 15) {
@@ -40,28 +32,33 @@ struct HomeView: View {
                             Image(systemName: "camera")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
+                                .frame(width: 25, height: 25)
                                 .foregroundColor(.white)
-                            Text("Open Camera")
+                            Text("Camera")
                                 .foregroundColor(.white)
+                                .font(.caption)
                         }
                         VStack {
-                            Image(systemName: "doc.text.viewfinder")
+                            Image(systemName: "house")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
+                                .frame(width: 25, height: 25)
                                 .foregroundColor(.white)
-                            Text("Filler")
+                            Text("Home")
                                 .foregroundColor(.white)
+                                .font(.caption)
+
                         }
                         VStack {
                             Image(systemName: "gear")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
+                                .frame(width: 25, height: 25)
                                 .foregroundColor(.white)
                             Text("Settings")
                                 .foregroundColor(.white)
+                                .font(.caption)
+
                         }
                     }
                 }
@@ -82,8 +79,8 @@ struct HomeView: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(Color.green)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
+                        .cornerRadius(100)
+                        
                 }
                 .padding(.horizontal)
             }
