@@ -4,7 +4,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             // Background
-            LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.black]),
+            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
                            startPoint: .top,
                            endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
@@ -57,8 +57,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                             Text("Settings")
                                 .foregroundColor(.white)
-                                .font(.caption)
-
+                            
                         }
                     }
                 }

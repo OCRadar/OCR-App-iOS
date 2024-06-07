@@ -14,6 +14,10 @@
 		0E86A6002C11FA35008F00DA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A5FF2C11FA35008F00DA /* CameraView.swift */; };
 		0E86A6022C11FABF008F00DA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A6012C11FABF008F00DA /* SettingsView.swift */; };
 		0E86A6062C132B7C008F00DA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A6052C132B7C008F00DA /* HomeView.swift */; };
+		0E86A60A2C133CF5008F00DA /* VisionGlassModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A6092C133CF5008F00DA /* VisionGlassModifier.swift */; };
+		0E86A60C2C133D3D008F00DA /* darkGlassEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A60B2C133D3D008F00DA /* darkGlassEffect.swift */; };
+		0E86A60E2C133D66008F00DA /* visionGlassEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A60D2C133D66008F00DA /* visionGlassEffect.swift */; };
+		0E86A6102C133D9B008F00DA /* GlassModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A60F2C133D9B008F00DA /* GlassModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		0E86A5FF2C11FA35008F00DA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0E86A6012C11FABF008F00DA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0E86A6052C132B7C008F00DA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0E86A6092C133CF5008F00DA /* VisionGlassModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionGlassModifier.swift; sourceTree = "<group>"; };
+		0E86A60B2C133D3D008F00DA /* darkGlassEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkGlassEffect.swift; sourceTree = "<group>"; };
+		0E86A60D2C133D66008F00DA /* visionGlassEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visionGlassEffect.swift; sourceTree = "<group>"; };
+		0E86A60F2C133D9B008F00DA /* GlassModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,10 @@
 		0E29380B2C0FF30F002287D8 = {
 			isa = PBXGroup;
 			children = (
+				0E86A60F2C133D9B008F00DA /* GlassModifier.swift */,
+				0E86A60D2C133D66008F00DA /* visionGlassEffect.swift */,
+				0E86A60B2C133D3D008F00DA /* darkGlassEffect.swift */,
+				0E86A6092C133CF5008F00DA /* VisionGlassModifier.swift */,
 				0E86A6052C132B7C008F00DA /* HomeView.swift */,
 				0E86A6012C11FABF008F00DA /* SettingsView.swift */,
 				0E86A5FF2C11FA35008F00DA /* CameraView.swift */,
@@ -146,11 +158,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E86A60C2C133D3D008F00DA /* darkGlassEffect.swift in Sources */,
+				0E86A60E2C133D66008F00DA /* visionGlassEffect.swift in Sources */,
 				0E86A6002C11FA35008F00DA /* CameraView.swift in Sources */,
+				0E86A6102C133D9B008F00DA /* GlassModifier.swift in Sources */,
 				0E86A6022C11FABF008F00DA /* SettingsView.swift in Sources */,
 				0E29381A2C0FF30F002287D8 /* ContentView.swift in Sources */,
 				0E86A6062C132B7C008F00DA /* HomeView.swift in Sources */,
 				0E2938182C0FF30F002287D8 /* OCR_App_iOSApp.swift in Sources */,
+				0E86A60A2C133CF5008F00DA /* VisionGlassModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

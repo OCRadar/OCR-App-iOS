@@ -1,49 +1,65 @@
-//
-//  SettingsView.swift
-//  OCR App iOS
-//
-//  Created by Aniketh Bandlamudi on 6/6/24.
-//
-
-import Foundation
-
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var notificationsEnabled: Bool = true
-    @State private var selectedTheme: String = "Light"
-    @State private var volumeLevel: Double = 50.0
-
-    let themes = ["Light", "Dark", "System"]
-
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("General")) {
-                    Toggle(isOn: $notificationsEnabled) {
-                        Text("Enable Notifications")
-                    }
-                    
-                    Picker(selection: $selectedTheme, label: Text("Theme")) {
-                        ForEach(themes, id: \.self) {
-                            Text($0)
-                        }
-                    }
+        ZStack {
+            // Background
+            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
+                           startPoint: .top,
+                           endPoint: .center)
+                .edgesIgnoringSafeArea(.all)
+            
+            // Content
+            VStack(spacing: 20) {
+                // Settings Title
+                Text("Settings")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                
+                // Settings Options
+                VStack(spacing: 15) {
+                    SettingOptionView(icon: "bell", title: "Notifications")
+                    SettingOptionView(icon: "lock", title: "Privacy")
+                    SettingOptionView(icon: "info.circle", title: "About")
                 }
-
-                Section(header: Text("Sound")) {
-                    Slider(value: $volumeLevel, in: 0...100, step: 1) {
-                        Text("Volume")
-                    }
-                }
+                .padding()
+                .background(Color.black.opacity(0.3))
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                
+                Spacer()
             }
-            .navigationTitle("Settings")
+            .padding()
         }
+    }
+}
+
+struct SettingOptionView: View {
+    var icon: String
+    var title: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 25, height: 25)
+                .foregroundColor(.white)
+            
+            Text(title)
+                .foregroundColor(.white)
+                .font(.headline)
+            
+            Spacer()
+        }
+        .padding()
+        .background(Color.black.opacity(0.3))
+        .cornerRadius(10)
+        .shadow(radius: 10)
     }
 }
 
 #Preview {
     SettingsView()
 }
-
-// ignore this comment, testing git&disc webhooks
