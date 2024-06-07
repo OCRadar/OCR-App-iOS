@@ -15,15 +15,10 @@ struct ContentView: View {
                     Label("Camera", systemImage: "camera")
                 }
             
-            VStack {
-                Image(systemName: "house")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Filler base app, more to come soon")
-            }
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
             
             SettingsView()
                 .tabItem {
