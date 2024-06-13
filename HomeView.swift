@@ -91,22 +91,22 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.gray.opacity(0.4))
                         .cornerRadius(100)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 100)
-                                .stroke(
-                                    LinearGradient(
-                                        gradient: Gradient(stops: [
-                                            .init(color: Color.white.opacity(0.50), location: 0),
-                                            .init(color: Color.white.opacity(0.0), location: 0.25),
-                                            .init(color: Color.white.opacity(0.0), location: 0.75),
-                                            .init(color: Color.white.opacity(0.35), location: 1)
-                                        ]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 2
-                                )
-                        )
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 100)
+//                                .stroke(
+//                                    LinearGradient(
+//                                        gradient: Gradient(stops: [
+//                                            .init(color: Color.white.opacity(0.50), location: 0),
+//                                            .init(color: Color.white.opacity(0.0), location: 0.25),
+//                                            .init(color: Color.white.opacity(0.0), location: 0.75),
+//                                            .init(color: Color.white.opacity(0.35), location: 1)
+//                                        ]),
+//                                        startPoint: .topLeading,
+//                                        endPoint: .bottomTrailing
+//                                    ),
+//                                    lineWidth: 2
+//                                )
+//                        )
                 }
                 .padding(.horizontal)
             }
