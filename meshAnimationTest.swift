@@ -24,11 +24,13 @@ struct AnimatingMeshView: View {
                 
                 [0, 1], [0.25, 1], [0.5, 1], [0.75, 1], [1, 1],
             ], colors: [
-                .black, .black, .black, .black, .black,
-                .black, .green, .yellow, .orange, .black,
-                .black, .blue, .purple, .red, .black,
-                .black, .black, .black, .black, .black
+                .gray.opacity(0.2), .gray.opacity(0.2), .gray.opacity(0.2), .gray.opacity(0.2), .gray.opacity(0.2),
+                .gray.opacity(0.2), .gray.opacity(0.2), .gray.opacity(0.2), .gray.opacity(0.2), .gray.opacity(0.2),
+                
+                .black.opacity(0.5), .black.opacity(0.5), .black.opacity(0.5), .black.opacity(0.5), .black.opacity(0.5),
+                .black.opacity(0.5), .black.opacity(0.5), .black.opacity(0.5), .black.opacity(0.5), .black.opacity(0.5)
             ])
+            .ignoresSafeArea()
         }
     }
     
@@ -40,5 +42,5 @@ struct AnimatingMeshView: View {
 }
 
 #Preview {
-    AnimatingMeshView(referenceDate: .now).ignoresSafeArea()
+    AnimatingMeshView(referenceDate: .now)
 }
