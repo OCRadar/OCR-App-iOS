@@ -24,7 +24,7 @@ struct HomeView: View {
                     
                     // Swipable Card Stack
                     TabView {
-                        ForEach(0..<10, id: \.self) { index in
+                        ForEach(0..<5, id: \.self) { index in
                             CardView(title: cardTitle(for: index), description: cardDescription(for: index))
                                 .padding(.horizontal)
                         }
@@ -55,7 +55,7 @@ struct HomeView: View {
     private func cardTitle(for index: Int) -> String {
         switch index {
         case 0:
-            return "Introduction"
+            return "Welcome"
         case 1:
             return "Key Features"
         case 2:
@@ -63,17 +63,8 @@ struct HomeView: View {
         case 3:
             return "User Guide"
         case 4:
-            return "User Feedback"
-        case 5:
-            return "Premium Features"
-        case 6:
-            return "Future Updates"
-        case 7:
-            return "Tips and Tricks"
-        case 8:
-            return "Community"
-        case 9:
-            return "Thank You"
+            return "Feedback"
+            
         default:
             return ""
         }
@@ -83,25 +74,16 @@ struct HomeView: View {
     private func cardDescription(for index: Int) -> String {
         switch index {
         case 0:
-            return "This is an introduction to OCRadar."
+            return "Welcome to the Developer Alpha of OCRadar. We strive to facilitate the detection of Oral Cancer in our users."
         case 1:
-            return "Discover the key features of OCRadar."
+            return "Discover the key features of OCRadar. The Camera tab is the heart of the app. It is home to the picture taking, and AI processing features. After a scan, you will be given a result."
         case 2:
-            return "Explore the features of version 1.0."
+            return "This version contains the foundations of OCRadar. New features will be pushed after the public release of the app."
         case 3:
             return "Learn how to use OCRadar effectively."
         case 4:
-            return "See what users are saying about OCRadar."
-        case 5:
-            return "Explore our premium features."
-        case 6:
-            return "Find out what's coming in future updates."
-        case 7:
-            return "Discover tips and tricks for using OCRadar."
-        case 8:
-            return "Join our community and share your feedback."
-        case 9:
-            return "Thank you for choosing OCRadar!"
+            return "Please share feedback and report issues. This is a crucial step in ensuring the function of the app, and accurate results for our users."
+
         default:
             return ""
         }
