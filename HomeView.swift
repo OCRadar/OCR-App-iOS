@@ -17,8 +17,9 @@ struct HomeView: View {
                     // Welcome Text
                     Text("OCRadar")
                         .font(.largeTitle)
-                        .fontWeight(.bold)
+                        .fontWeight(.thin)
                         .foregroundColor(.white)
+                
                     
                     Spacer()
                     
@@ -105,7 +106,7 @@ struct CardView: View {
         }
         .padding()
         .background(Color.gray.opacity(0.2)) // Translucent background
-        .cornerRadius(10)
+        .cornerRadius(20)
         .shadow(radius: 5)
     }
 }

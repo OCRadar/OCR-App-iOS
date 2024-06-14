@@ -33,7 +33,7 @@ struct SettingsView: View {
                     }
                     .padding()
                     .background(Color.black.opacity(0.3))
-                    .cornerRadius(10)
+                    .cornerRadius(30)
                     
                     Spacer()
                 }
@@ -67,7 +67,7 @@ struct SettingOptionView: View {
         }
         .padding()
         .background(Color.black.opacity(0.3))
-        .cornerRadius(10)
+        .cornerRadius(15)
     }
 }
 
