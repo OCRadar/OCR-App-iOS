@@ -11,7 +11,7 @@ struct HomeView: View {
             
             // Content
             VStack(spacing: 20) {
-                // Top Image
+                // Top Image (you can add an image here if needed)
                 
                 // Welcome Text
                 Text("OCRadar")
@@ -19,64 +19,17 @@ struct HomeView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 
-                // Quick Actions Section
-                VStack(spacing: 15) {
-                    Text("Quick Actions")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    
-                    HStack(spacing: 20) {
-                        VStack {
-                            Image(systemName: "camera")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.white)
-                            Text("Camera")
-                                .foregroundColor(.white)
-                                .font(.caption)
-                        }
-                        VStack {
-                            Image(systemName: "house")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.white)
-                            Text("Home")
-                                .foregroundColor(.white)
-                                .font(.caption)
-                        }
-                        VStack {
-                            Image(systemName: "gear")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.white)
-                            Text("Settings")
-                                .foregroundColor(.white)
-                        }
+                Spacer()
+                
+                // Swipable Card Stack
+                TabView {
+                    ForEach(0..<10, id: \.self) { index in
+                        CardView(title: "Card Title \(index + 1)", description: "This is a description for card number \(index + 1).")
+                            .padding(.horizontal)
                     }
                 }
-                .padding()
-                .background(Color.black.opacity(0.3))
-                .cornerRadius(10)
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .stroke(
-//                            LinearGradient(
-//                                gradient: Gradient(stops: [
-//                                    .init(color: Color.white.opacity(0.50), location: 0),
-//                                    .init(color: Color.white.opacity(0.0), location: 0.25),
-//                                    .init(color: Color.white.opacity(0.0), location: 0.75),
-//                                    .init(color: Color.white.opacity(0.35), location: 1)
-//                                ]),
-//                                startPoint: .topLeading,
-//                                endPoint: .bottomTrailing
-//                            ),
-//                            lineWidth: 2
-//                        )
-//                )
-//                .shadow(radius: 10)
+                .tabViewStyle(PageTabViewStyle())
+                .frame(height: 300)
                 
                 Spacer()
                 
@@ -91,27 +44,31 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.gray.opacity(0.4))
                         .cornerRadius(100)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 100)
-//                                .stroke(
-//                                    LinearGradient(
-//                                        gradient: Gradient(stops: [
-//                                            .init(color: Color.white.opacity(0.50), location: 0),
-//                                            .init(color: Color.white.opacity(0.0), location: 0.25),
-//                                            .init(color: Color.white.opacity(0.0), location: 0.75),
-//                                            .init(color: Color.white.opacity(0.35), location: 1)
-//                                        ]),
-//                                        startPoint: .topLeading,
-//                                        endPoint: .bottomTrailing
-//                                    ),
-//                                    lineWidth: 2
-//                                )
-//                        )
                 }
                 .padding(.horizontal)
             }
             .padding()
         }
+    }
+}
+
+struct CardView: View {
+    var title: String
+    var description: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.headline)
+                .foregroundColor(.white)
+            Text(description)
+                .font(.subheadline)
+                .foregroundColor(.white.opacity(0.7))
+        }
+        .padding()
+        .background(Color.gray.opacity(0.2)) // Translucent background
+        .cornerRadius(10)
+        .shadow(radius: 5)
     }
 }
 
