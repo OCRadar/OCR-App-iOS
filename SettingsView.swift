@@ -2,50 +2,44 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        ZStack {
-            // Background
-            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
-                           startPoint: .top,
-                           endPoint: .center)
-                .edgesIgnoringSafeArea(.all)
-            
-            // Content
-            VStack(spacing: 20) {
-                // Settings Title
-                Text("Settings")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+        NavigationView {
+            ZStack {
+                // Background
+                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
+                               startPoint: .top,
+                               endPoint: .center)
+                    .edgesIgnoringSafeArea(.all)
                 
-                // Settings Options
-                VStack(spacing: 15) {
-                    SettingOptionView(icon: "bell", title: "Notifications")
-                    SettingOptionView(icon: "lock", title: "Privacy")
-                    SettingOptionView(icon: "info.circle", title: "About")
+                // Content
+                VStack(spacing: 20) {
+                    // Settings Title
+//                    Text("Settings")
+//                        .font(.largeTitle)
+//                        .fontWeight(.bold)
+//                        .foregroundColor(.white)
+                    
+                    // Settings Options
+                    VStack(spacing: 15) {
+                        NavigationLink(destination: NotificationsView()) {
+                            SettingOptionView(icon: "bell", title: "Notifications")
+                        }
+                        NavigationLink(destination: PrivacyView()) {
+                            SettingOptionView(icon: "lock", title: "Privacy")
+                        }
+                        NavigationLink(destination: AboutView()) {
+                            SettingOptionView(icon: "info.circle", title: "About")
+                        }
+                        // Add more settings options as needed
+                    }
+                    .padding()
+                    .background(Color.black.opacity(0.3))
+                    .cornerRadius(10)
+                    
+                    Spacer()
                 }
                 .padding()
-                .background(Color.black.opacity(0.3))
-                .cornerRadius(10)
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .stroke(
-//                            LinearGradient(
-//                                gradient: Gradient(stops: [
-//                                    .init(color: Color.white.opacity(0.50), location: 0),
-//                                    .init(color: Color.white.opacity(0.0), location: 0.25),
-//                                    .init(color: Color.white.opacity(0.0), location: 0.75),
-//                                    .init(color: Color.white.opacity(0.35), location: 1)
-//                                ]),
-//                                startPoint: .topLeading,
-//                                endPoint: .bottomTrailing
-//                            ),
-//                            lineWidth: 2
-//                        )
-//                )
-                
-                Spacer()
             }
-            .padding()
+            .navigationTitle("Settings")
         }
     }
 }
@@ -67,29 +61,41 @@ struct SettingOptionView: View {
                 .font(.headline)
             
             Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundColor(.white)
         }
         .padding()
         .background(Color.black.opacity(0.3))
         .cornerRadius(10)
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(
-//                    LinearGradient(
-//                        gradient: Gradient(stops: [
-//                            .init(color: Color.white.opacity(0.25), location: 0),
-//                            .init(color: Color.white.opacity(0.0), location: 0.25),
-//                            .init(color: Color.white.opacity(0.0), location: 0.75),
-//                            .init(color: Color.white.opacity(0.15), location: 1)
-//                        ]),
-//                        startPoint: .topLeading,
-//                        endPoint: .bottomTrailing
-//                    ),
-//                    lineWidth: 2
-//                )
-//        )
     }
 }
 
-#Preview {
-    SettingsView()
+// Example sub-views for each setting
+
+struct NotificationsView: View {
+    var body: some View {
+        Text("Notifications Settings Placeholder")
+            .navigationBarTitle("Notifications")
+    }
+}
+
+struct PrivacyView: View {
+    var body: some View {
+        Text("Privacy Settings Placeholder")
+            .navigationBarTitle("Privacy")
+    }
+}
+
+struct AboutView: View {
+    var body: some View {
+        Text("About Settings Placeholder")
+            .navigationBarTitle("About")
+    }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
 }

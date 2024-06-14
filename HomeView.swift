@@ -2,52 +2,108 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ZStack {
-            // Background
-            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
-                           startPoint: .top,
-                           endPoint: .center)
-                .edgesIgnoringSafeArea(.all)
-            
-            // Content
-            VStack(spacing: 20) {
-                // Top Image (you can add an image here if needed)
+        NavigationView {
+            ZStack {
+                // Background
+                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
+                               startPoint: .top,
+                               endPoint: .center)
+                    .edgesIgnoringSafeArea(.all)
                 
-                // Welcome Text
-                Text("OCRadar")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                
-                Spacer()
-                
-                // Swipable Card Stack
-                TabView {
-                    ForEach(0..<10, id: \.self) { index in
-                        CardView(title: "Card Title \(index + 1)", description: "This is a description for card number \(index + 1).")
-                            .padding(.horizontal)
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle())
-                .frame(height: 300)
-                
-                Spacer()
-                
-                // Call to Action Button
-                Button(action: {
-                    // Action for the button
-                }) {
-                    Text("Get Started")
-                        .font(.headline)
+                // Content
+                VStack(spacing: 20) {
+                    // Top Image (you can add an image here if needed)
+                    
+                    // Welcome Text
+                    Text("OCRadar")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.gray.opacity(0.4))
-                        .cornerRadius(100)
+                    
+                    Spacer()
+                    
+                    // Swipable Card Stack
+                    TabView {
+                        ForEach(0..<10, id: \.self) { index in
+                            CardView(title: cardTitle(for: index), description: cardDescription(for: index))
+                                .padding(.horizontal)
+                        }
+                    }
+                    .tabViewStyle(PageTabViewStyle())
+                    .frame(height: 300)
+                    
+                    Spacer()
+                    
+                    // Call to Action Button
+                    NavigationLink(destination: CameraView()) {
+                        Text("Get Started")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.gray.opacity(0.4))
+                            .cornerRadius(100)
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
+                .padding()
             }
-            .padding()
+        }
+    }
+    
+    // Function to provide hardcoded titles for each card
+    private func cardTitle(for index: Int) -> String {
+        switch index {
+        case 0:
+            return "Introduction"
+        case 1:
+            return "Key Features"
+        case 2:
+            return "Version 1.0"
+        case 3:
+            return "User Guide"
+        case 4:
+            return "User Feedback"
+        case 5:
+            return "Premium Features"
+        case 6:
+            return "Future Updates"
+        case 7:
+            return "Tips and Tricks"
+        case 8:
+            return "Community"
+        case 9:
+            return "Thank You"
+        default:
+            return ""
+        }
+    }
+    
+    // Function to provide hardcoded descriptions for each card
+    private func cardDescription(for index: Int) -> String {
+        switch index {
+        case 0:
+            return "This is an introduction to OCRadar."
+        case 1:
+            return "Discover the key features of OCRadar."
+        case 2:
+            return "Explore the features of version 1.0."
+        case 3:
+            return "Learn how to use OCRadar effectively."
+        case 4:
+            return "See what users are saying about OCRadar."
+        case 5:
+            return "Explore our premium features."
+        case 6:
+            return "Find out what's coming in future updates."
+        case 7:
+            return "Discover tips and tricks for using OCRadar."
+        case 8:
+            return "Join our community and share your feedback."
+        case 9:
+            return "Thank you for choosing OCRadar!"
+        default:
+            return ""
         }
     }
 }
@@ -72,19 +128,8 @@ struct CardView: View {
     }
 }
 
-#Preview {
-    HomeView()
-}
-
-extension Color {
-    init(hex: String) {
-        let scanner = Scanner(string: hex)
-        scanner.currentIndex = hex.startIndex
-        var rgbValue: UInt64 = 0
-        scanner.scanHexInt64(&rgbValue)
-        let red = Double((rgbValue & 0xff0000) >> 16) / 255.0
-        let green = Double((rgbValue & 0x00ff00) >> 8) / 255.0
-        let blue = Double(rgbValue & 0x0000ff) / 255.0
-        self.init(red: red, green: green, blue: blue)
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }
