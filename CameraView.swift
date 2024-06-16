@@ -22,7 +22,6 @@ struct CameraView: UIViewControllerRepresentable {
             picker.dismiss(animated: true)
         }
 
-        // Add any other delegate methods if you want to handle the captured image
     }
 
     func makeCoordinator() -> Coordinator {

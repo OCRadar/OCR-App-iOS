@@ -4,17 +4,13 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Background
                 LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
                                startPoint: .top,
                                endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
                 
-                // Content
                 VStack(spacing: 20) {
-                    // Top Image (you can add an image here if needed)
                     
-                    // Welcome Text
                     Text("OCRadar")
                         .font(.largeTitle)
                         .fontWeight(.thin)
@@ -23,7 +19,6 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    // Swipable Card Stack
                     TabView {
                         ForEach(0..<5, id: \.self) { index in
                             CardView(title: cardTitle(for: index), description: cardDescription(for: index))
@@ -35,7 +30,6 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    // Call to Action Button
                     NavigationLink(destination: CameraView()) {
                         Text("Get Started")
                             .font(.headline)
@@ -52,7 +46,6 @@ struct HomeView: View {
         }
     }
     
-    // Function to provide hardcoded titles for each card
     private func cardTitle(for index: Int) -> String {
         switch index {
         case 0:
@@ -71,7 +64,6 @@ struct HomeView: View {
         }
     }
     
-    // Function to provide hardcoded descriptions for each card
     private func cardDescription(for index: Int) -> String {
         switch index {
         case 0:
@@ -105,7 +97,7 @@ struct CardView: View {
                 .foregroundColor(.white.opacity(0.7))
         }
         .padding()
-        .background(Color.gray.opacity(0.2)) // Translucent background
+        .background(Color.gray.opacity(0.2))
         .cornerRadius(20)
         .shadow(radius: 5)
     }
