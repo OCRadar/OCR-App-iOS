@@ -13,6 +13,7 @@
 		0E29381F2C0FF310002287D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E29381E2C0FF310002287D8 /* Preview Assets.xcassets */; };
 		0E4EDE872C1BBAC000D029EF /* meshAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4EDE862C1BBAB700D029EF /* meshAnimationTest.swift */; };
 		0E4EDE8D2C1BC0CC00D029EF /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0E4EDE8C2C1BC0CC00D029EF /* File.txt */; };
+		0E50C7DA2C2354520077DE1A /* BackendLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50C7D92C2354480077DE1A /* BackendLink.swift */; };
 		0E86A6002C11FA35008F00DA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A5FF2C11FA35008F00DA /* CameraView.swift */; };
 		0E86A6022C11FABF008F00DA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A6012C11FABF008F00DA /* SettingsView.swift */; };
 		0E86A6062C132B7C008F00DA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E86A6052C132B7C008F00DA /* HomeView.swift */; };
@@ -30,6 +31,7 @@
 		0E29381E2C0FF310002287D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E4EDE862C1BBAB700D029EF /* meshAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meshAnimationTest.swift; sourceTree = "<group>"; };
 		0E4EDE8C2C1BC0CC00D029EF /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
+		0E50C7D92C2354480077DE1A /* BackendLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendLink.swift; sourceTree = "<group>"; };
 		0E86A5FF2C11FA35008F00DA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0E86A6012C11FABF008F00DA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0E86A6052C132B7C008F00DA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		0E29380B2C0FF30F002287D8 = {
 			isa = PBXGroup;
 			children = (
+				0E50C7D92C2354480077DE1A /* BackendLink.swift */,
 				0E86A60F2C133D9B008F00DA /* GlassModifier.swift */,
 				0E86A60D2C133D66008F00DA /* visionGlassEffect.swift */,
 				0E86A60B2C133D3D008F00DA /* darkGlassEffect.swift */,
@@ -175,6 +178,7 @@
 				0E2938182C0FF30F002287D8 /* OCR_App_iOSApp.swift in Sources */,
 				0E86A60A2C133CF5008F00DA /* VisionGlassModifier.swift in Sources */,
 				0E4EDE872C1BBAC000D029EF /* meshAnimationTest.swift in Sources */,
+				0E50C7DA2C2354520077DE1A /* BackendLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
