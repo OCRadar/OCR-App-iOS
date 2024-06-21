@@ -88,19 +88,19 @@ struct CardView: View {
     var description: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) { // Increased spacing between elements
+        VStack(alignment: .leading, spacing: 20) {
             Text(title)
-                .font(.title) // Larger title font
-                .fontWeight(.bold) // Increased font weight
+                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
-                .padding(.bottom, 10) // Increased bottom padding
+                .padding(.bottom, 10)
             
             Text(description)
-                .font(.body) // Larger body text font
+                .font(.body)
                 .foregroundColor(.white.opacity(0.7))
         }
-        .padding(30) // Increased overall padding
-        .frame(maxWidth: .infinity) // Take up maximum width
+        .padding(30)
+        .frame(maxWidth: .infinity)
         .background(Color.gray.opacity(0.2))
         .cornerRadius(18*2)
         .shadow(radius: 5)
