@@ -6,6 +6,8 @@
 //
 // THIS IS NOT FINAL CODE
 // NOTHING IN THIS FILE IS CONFIRMED AND IS NOT IMPLEMENTED
+// python file containing model needs to be implemented
+//
 //import Foundation
 //import SwiftUI
 //import UIKit
