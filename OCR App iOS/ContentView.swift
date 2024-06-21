@@ -38,6 +38,14 @@ struct ContentView: View {
                 Spacer()
             }
             .padding(.vertical, 10)
+            .background(
+                RoundedRectangle(cornerRadius: 100)
+                    .foregroundColor(.gray.opacity(0.2))
+                    .frame(height: 70)
+                    .shadow(radius: 5)
+                    .padding(.horizontal, 20)
+            )
+            .padding(.bottom, 20)
             .background(Color.black.edgesIgnoringSafeArea(.bottom))
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -53,21 +61,13 @@ struct TabBarButton: View {
         Button(action: {
             selectedTab = tab
         }) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.white)
-                    .frame(width: 70, height: 70)
-                    .shadow(radius: 5)
-                
-                Image(systemName: systemImage)
-                    .font(.system(size: 24)) // Adjust the size of the icon
-                    .foregroundColor(selectedTab == tab ? .blue : .gray)
-            }
+            Image(systemName: systemImage)
+                .font(.system(size: 24))
+                .foregroundColor(selectedTab == tab ? .blue : Color.white.opacity(0.5))
+                .padding()
         }
-        .padding(.bottom, 20) // This gives the floating effect
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
