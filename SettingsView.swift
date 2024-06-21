@@ -4,35 +4,41 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Background
+                
                 LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
                                startPoint: .top,
                                endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
                 
-                // Content
+                
                 VStack(spacing: 20) {
-                    // Settings Title
-//                    Text("Settings")
-//                        .font(.largeTitle)
-//                        .fontWeight(.bold)
-//                        .foregroundColor(.white)
                     
-                    // Settings Options
+                    
+                    
+                    
                     VStack(spacing: 15) {
                         NavigationLink(destination: NotificationsView()) {
-                            SettingOptionView(icon: "bell", title: "Notifications")
+                            SettingOptionView(icon: "bell", title: "    Notifications")
                         }
                         NavigationLink(destination: PrivacyView()) {
-                            SettingOptionView(icon: "lock", title: "Privacy")
+                            SettingOptionView(icon: "lock", title: "    Privacy")
                         }
                         NavigationLink(destination: AboutView()) {
-                            SettingOptionView(icon: "info.circle", title: "About")
+                            SettingOptionView(icon: "info.circle", title: "    About")
                         }
-                        // Add more settings options as needed
+                        NavigationLink(destination: AccountView()) {
+                            SettingOptionView(icon: "person", title: "    Account")
+                        }
+                        NavigationLink(destination: AppearanceView()) {
+                            SettingOptionView(icon: "paintbrush", title: "    Appearance")
+                        }
+                        NavigationLink(destination: HelpView()) {
+                            SettingOptionView(icon: "questionmark.circle", title: "    Help & Support")
+                        }
+                        
                     }
                     .padding()
-                    .background(Color.black.opacity(0.3))
+                    .background(Color.gray.opacity(0.2))
                     .cornerRadius(18*2)
                     
                     Spacer()
@@ -66,31 +72,132 @@ struct SettingOptionView: View {
                 .foregroundColor(.white)
         }
         .padding()
-        .background(Color.black.opacity(0.3))
+        .background(Color.gray.opacity(0.2))
         .cornerRadius(18)
     }
 }
 
-// Example sub-views for each setting
 
 struct NotificationsView: View {
+    @State private var enableNotifications = true
+    @State private var notificationInterval = 15
+    
     var body: some View {
-        Text("Notifications Settings Placeholder")
-            .navigationBarTitle("Notifications")
+        Form {
+            Section(header: Text("Notification Settings")) {
+                Toggle(isOn: $enableNotifications) {
+                    Text("Enable Notifications")
+                }
+                
+                Stepper(value: $notificationInterval, in: 5...60, step: 5) {
+                    Text("Notification Interval: \(notificationInterval) minutes")
+                }
+            }
+        }
+        .navigationBarTitle("Notifications")
     }
 }
 
+
 struct PrivacyView: View {
+    @State private var enableAnalytics = true
+    @State private var enableDataCollection = false
+    
     var body: some View {
-        Text("Privacy Settings Placeholder")
-            .navigationBarTitle("Privacy")
+        Form {
+            Section(header: Text("Privacy Settings")) {
+                Toggle(isOn: $enableAnalytics) {
+                    Text("Enable Analytics")
+                }
+                
+                Toggle(isOn: $enableDataCollection) {
+                    Text("Enable Data Collection")
+                }
+            }
+        }
+        .navigationBarTitle("Privacy")
     }
 }
+
 
 struct AboutView: View {
     var body: some View {
-        Text("About Settings Placeholder")
-            .navigationBarTitle("About")
+        VStack(alignment: .leading, spacing: 20) {
+            Text("About This App")
+                .font(.title)
+            
+            Text("Version 1.0")
+                .foregroundColor(.gray)
+            
+            Text("This version contains the foundations of OCRadar. New features will be pushed after the public release of the app.")
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.leading)
+        }
+        .padding()
+        .navigationBarTitle("About")
+    }
+}
+
+
+struct AccountView: View {
+    @State private var userName = "Aniketh Bandlamudi"
+    @State private var email = "anikethdb1@gmail.com"
+    
+    var body: some View {
+        Form {
+            Section(header: Text("Account Information")) {
+                TextField("Username", text: $userName)
+                    .disableAutocorrection(true)
+                
+                TextField("Email", text: $email)
+                    .keyboardType(.emailAddress)
+                    .disableAutocorrection(true)
+            }
+        }
+        .navigationBarTitle("Account")
+    }
+}
+
+
+struct AppearanceView: View {
+    @State private var darkModeEnabled = true
+    @State private var fontSize = 16
+    
+    var body: some View {
+        Form {
+            Section(header: Text("Appearance Settings")) {
+                Toggle(isOn: $darkModeEnabled) {
+                    Text("Dark Mode")
+                }
+                
+                Stepper(value: $fontSize, in: 12...24, step: 2) {
+                    Text("Font Size: \(fontSize)")
+                }
+            }
+        }
+        .navigationBarTitle("Appearance")
+    }
+}
+
+
+struct HelpView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Help & Support")
+                .font(.title)
+            
+            Text("Contact Us:")
+                .foregroundColor(.gray)
+            
+            Button(action: {
+                
+            }) {
+                Text("support@ocradar.com")
+                    .foregroundColor(.blue)
+            }
+        }
+        .padding()
+        .navigationBarTitle("Help & Support")
     }
 }
 
