@@ -102,7 +102,7 @@ struct CardView: View {
         .padding(30) // Increased overall padding
         .frame(maxWidth: .infinity) // Take up maximum width
         .background(Color.gray.opacity(0.2))
-        .cornerRadius(18)
+        .cornerRadius(18*2)
         .shadow(radius: 5)
     }
 }
