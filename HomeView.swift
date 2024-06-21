@@ -26,7 +26,7 @@ struct HomeView: View {
                         }
                     }
                     .tabViewStyle(PageTabViewStyle())
-                    .frame(height: 300)
+                    .frame(height: 500)
                     
                     Spacer()
                     
