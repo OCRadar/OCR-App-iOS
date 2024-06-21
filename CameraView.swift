@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import SwiftUI
 import UIKit
 
@@ -22,6 +21,13 @@ struct CameraView: UIViewControllerRepresentable {
             picker.dismiss(animated: true)
         }
 
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                // Do something with the image if needed
+                print("Image selected: \(image)")
+            }
+            picker.dismiss(animated: true)
+        }
     }
 
     func makeCoordinator() -> Coordinator {
