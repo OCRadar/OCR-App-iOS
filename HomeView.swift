@@ -10,12 +10,17 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
-                    
                     Text("OCRadar")
                         .font(.largeTitle)
-                        .fontWeight(.thin)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
-                
+                        .padding(.top, 40)
+                        
+                    Image("OCR-Circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                        .padding(.bottom, -50)
                     
                     Spacer()
                     
@@ -26,7 +31,7 @@ struct HomeView: View {
                         }
                     }
                     .tabViewStyle(PageTabViewStyle())
-                    .frame(height: 500)
+                    .frame(height: 350)
                     
                     Spacer()
                     
@@ -36,12 +41,13 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.4))
+                            .background(Color.blue.opacity(1))
                             .cornerRadius(100)
                     }
                     .padding(.horizontal)
+                    .padding(.bottom, 70)
                 }
-                .padding()
+                .padding(.horizontal, 20)
             }
         }
     }
@@ -58,7 +64,6 @@ struct HomeView: View {
             return "User Guide"
         case 4:
             return "Feedback"
-            
         default:
             return ""
         }
@@ -76,7 +81,6 @@ struct HomeView: View {
             return "Learn how to use OCRadar effectively."
         case 4:
             return "Please share feedback and report issues. This is a crucial step in ensuring the function of the app, and accurate results for our users."
-
         default:
             return ""
         }
@@ -106,7 +110,6 @@ struct CardView: View {
         .shadow(radius: 5)
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
