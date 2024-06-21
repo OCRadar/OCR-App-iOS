@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  OCR App iOS
-//
-//  Created by Aniketh Bandlamudi on 6/4/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -17,77 +10,67 @@ struct ContentView: View {
     }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            CameraView()
-                .tabItem {
-                    Label("Camera", systemImage: "camera")
-                }
-                .tag(Tab.camera)
+        VStack {
+            TabView(selection: $selectedTab) {
+                CameraView()
+                    .tag(Tab.camera)
+                
+                HomeView()
+                    .tag(Tab.home)
+                
+                SettingsView()
+                    .tag(Tab.settings)
+            }
+            .edgesIgnoringSafeArea(.top)
             
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-                .tag(Tab.home)
+            Spacer()
             
-            SettingsView()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
-                .tag(Tab.settings)
+            HStack {
+                Spacer()
+                
+                TabBarButton(systemImage: "camera", tab: .camera, selectedTab: $selectedTab)
+                Spacer()
+                
+                TabBarButton(systemImage: "house", tab: .home, selectedTab: $selectedTab)
+                Spacer()
+                
+                TabBarButton(systemImage: "gear", tab: .settings, selectedTab: $selectedTab)
+                Spacer()
+            }
+            .padding(.vertical, 10)
+            .background(Color.black.edgesIgnoringSafeArea(.bottom))
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
-#Preview {
-    ContentView()
+struct TabBarButton: View {
+    let systemImage: String
+    let tab: ContentView.Tab
+    @Binding var selectedTab: ContentView.Tab
+
+    var body: some View {
+        Button(action: {
+            selectedTab = tab
+        }) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.white)
+                    .frame(width: 70, height: 70)
+                    .shadow(radius: 5)
+                
+                Image(systemName: systemImage)
+                    .font(.system(size: 24)) // Adjust the size of the icon
+                    .foregroundColor(selectedTab == tab ? .blue : .gray)
+            }
+        }
+        .padding(.bottom, 20) // This gives the floating effect
+    }
 }
 
-// code below is a not fully working nor complete implementation of a better tab bar, is being worked on
 
-//
-//
-//import SwiftUI
-//
-//struct ContentView: View {
-//    @State private var selectedTab: Tab = .home
-//
-//    enum Tab {
-//        case camera
-//        case home
-//        case settings
-//    }
-//
-//    var body: some View {
-//        TabView(selection: $selectedTab) {
-//            CameraView()
-//                .tabItem {
-//                    Label("Camera", systemImage: "camera")
-//                }
-//                .tag(Tab.camera)
-//            
-//            HomeView()
-//                .tabItem {
-//                    // Replace default "Home" label and icon with a custom image
-//                    Image("custom_home_icon") // Replace "custom_home_icon" with your image name
-//                        .resizable()
-//                        .renderingMode(.template)
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 22, height: 22) // Adjust size as needed
-//                }
-//                .tag(Tab.home)
-//            
-//            SettingsView()
-//                .tabItem {
-//                    Label("Settings", systemImage: "gear")
-//                }
-//                .tag(Tab.settings)
-//        }
-//    }
-//}
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
