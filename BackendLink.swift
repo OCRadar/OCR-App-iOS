@@ -7,6 +7,7 @@
 // THIS IS NOT FINAL CODE
 // NOTHING IN THIS FILE IS CONFIRMED AND IS NOT IMPLEMENTED
 // python file containing model needs to be implemented
+// need server to host, logistics later
 //
 //import Foundation
 //import SwiftUI
