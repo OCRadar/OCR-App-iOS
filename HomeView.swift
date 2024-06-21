@@ -88,20 +88,25 @@ struct CardView: View {
     var description: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 20) { // Increased spacing between elements
             Text(title)
-                .font(.headline)
+                .font(.title) // Larger title font
+                .fontWeight(.bold) // Increased font weight
                 .foregroundColor(.white)
+                .padding(.bottom, 10) // Increased bottom padding
+            
             Text(description)
-                .font(.subheadline)
+                .font(.body) // Larger body text font
                 .foregroundColor(.white.opacity(0.7))
         }
-        .padding()
+        .padding(30) // Increased overall padding
+        .frame(maxWidth: .infinity) // Take up maximum width
         .background(Color.gray.opacity(0.2))
-        .cornerRadius(20)
+        .cornerRadius(18)
         .shadow(radius: 5)
     }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
