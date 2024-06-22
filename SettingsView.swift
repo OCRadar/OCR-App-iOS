@@ -72,8 +72,10 @@ struct SettingOptionView: View {
                 .foregroundColor(.white)
         }
         .padding()
+        .padding(.horizontal)
         .background(Color.gray.opacity(0.2))
-        .cornerRadius(18)
+        .cornerRadius(100)
+        .shadow(color: .black, radius: 200, x: 0, y: 0)
     }
 }
 
