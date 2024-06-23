@@ -35,15 +35,15 @@ struct HomeView: View {
                     
                     Spacer()
                     
-//                    NavigationLink(destination: CameraView()) {
-//                        Text("Get Started")
-//                            .font(.headline)
-//                            .foregroundColor(.white)
-//                            .padding()
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color.blue.opacity(1))
-//                            .cornerRadius(100)
-//                    }
+                    NavigationLink(destination: CameraView()) {
+                        Text("Demo")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue.opacity(1))
+                            .cornerRadius(100)
+                    }
                     .padding(.horizontal)
                     .padding(.bottom, 70)
                 }
