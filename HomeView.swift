@@ -14,7 +14,7 @@ struct HomeView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.top, 40)
+                        .padding(.top, 100)
                         
                     Image("OCR-Circle")
                         .resizable()
