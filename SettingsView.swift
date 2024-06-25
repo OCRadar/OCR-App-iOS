@@ -5,10 +5,11 @@ struct SettingsView: View {
         NavigationView {
             ZStack {
                 
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]),
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
                                startPoint: .top,
                                endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
+                    .opacity(0.75)
                 
                 
                 VStack(spacing: 20) {
