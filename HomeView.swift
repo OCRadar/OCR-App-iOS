@@ -18,7 +18,7 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .padding(.top, 100)
                         
-                    Image("OCR-Circle")
+                    Image("ocrnew")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 150, height: 150)
