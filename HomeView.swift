@@ -4,11 +4,12 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.white]),
                                startPoint: .top,
                                endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(0.75)
+                    .opacity(0.9)
+                    .saturation(0.75)
                 
                 VStack(spacing: 20) {
                     Text("OCRadar")
@@ -42,16 +43,25 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color.purple.opacity(0.6))
+                            .background(Color.purple.opacity(0.75))
                             .cornerRadius(100)
+                            .shadow(color: Color.purple, radius: 15)
+                            .saturation(0.75)
+                            .padding(.top, -50)
+                        
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 70)
+                    
+                    
+
                 }
                 .padding(.horizontal, 20)
             }
+            
         }
     }
+    
     
     private func cardTitle(for index: Int) -> String {
         switch index {
@@ -97,18 +107,20 @@ struct CardView: View {
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding(.bottom, 10)
             
             Text(description)
                 .font(.body)
-                .foregroundColor(.white.opacity(0.7))
+                .foregroundColor(.black.opacity(0.7))
         }
         .padding(30)
         .frame(maxWidth: .infinity)
-        .background(Color.gray.opacity(0.2))
+        .background(Color.white.opacity(0.5))
         .cornerRadius(18*2)
-        .shadow(radius: 5)
+        
+        //.shadow(color: Color.white, radius: 15)
+        
     }
 }
 

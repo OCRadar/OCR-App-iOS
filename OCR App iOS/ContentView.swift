@@ -10,7 +10,7 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) { // Set spacing to 0
             TabView(selection: $selectedTab) {
                 CameraView()
                     .tag(Tab.camera)
@@ -40,15 +40,15 @@ struct ContentView: View {
             .padding(.vertical, 10)
             .background(
                 RoundedRectangle(cornerRadius: 100)
-                    .foregroundColor(.gray.opacity(0.2))
+                    .foregroundColor(.white)
                     .frame(height: 70)
-                    .shadow(radius: 5)
+                    .shadow(color: Color.purple, radius: 100)
                     .padding(.horizontal, 20)
+                    .opacity(0.5)
             )
             .padding(.bottom, 20)
-            .background(Color.black.edgesIgnoringSafeArea(.bottom))
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .background(Color.white.edgesIgnoringSafeArea(.all).opacity(0.9)) // Set entire background to white
     }
 }
 
@@ -63,7 +63,7 @@ struct TabBarButton: View {
         }) {
             Image(systemName: systemImage)
                 .font(.system(size: 24))
-                .foregroundColor(selectedTab == tab ? .blue : Color.white.opacity(0.5))
+                .foregroundColor(selectedTab == tab ? .purple : Color.black.opacity(0.5))
                 .padding()
         }
     }
