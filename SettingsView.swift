@@ -40,7 +40,7 @@ struct SettingsView: View {
                         
                     }
                     .padding()
-                    .background(Color.white.opacity(0.2))
+                    .background(Color.white.opacity(0.4))
                     .cornerRadius(18*2)
                     
                     Spacer()
