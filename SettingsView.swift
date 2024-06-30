@@ -5,7 +5,7 @@ struct SettingsView: View {
         NavigationView {
             ZStack {
                 
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.white]),
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
                                startPoint: .top,
                                endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
@@ -40,7 +40,7 @@ struct SettingsView: View {
                         
                     }
                     .padding()
-                    .background(Color.white.opacity(0.4))
+                    .background(Color.gray.opacity(0.2))
                     .cornerRadius(18*2)
                     
                     Spacer()
@@ -62,20 +62,20 @@ struct SettingOptionView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 25, height: 25)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
             
             Text(title)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .font(.headline)
             
             Spacer()
             
             Image(systemName: "chevron.right")
-                .foregroundColor(.black)
+                .foregroundColor(.white)
         }
         .padding()
         .padding(.horizontal)
-        .background(Color.white.opacity(0.5))
+        .background(Color.black.opacity(0.2))
         .cornerRadius(100)
         //.shadow(color: .white, radius: 200, x: 0, y: 0)
     }

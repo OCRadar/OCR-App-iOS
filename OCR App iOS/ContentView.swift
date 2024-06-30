@@ -40,15 +40,15 @@ struct ContentView: View {
             .padding(.vertical, 10)
             .background(
                 RoundedRectangle(cornerRadius: 100)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .frame(height: 70)
-                    .shadow(color: Color.purple, radius: 100)
+                    .shadow(color: Color.purple, radius: 50)
                     .padding(.horizontal, 20)
                     .opacity(0.5)
             )
             .padding(.bottom, 20)
         }
-        .background(Color.white.edgesIgnoringSafeArea(.all).opacity(0.9)) // Set entire background to white
+        .background(Color.black.edgesIgnoringSafeArea(.all).opacity(1)) // Set entire background to white
     }
 }
 
@@ -63,7 +63,7 @@ struct TabBarButton: View {
         }) {
             Image(systemName: systemImage)
                 .font(.system(size: 24))
-                .foregroundColor(selectedTab == tab ? .purple : Color.black.opacity(0.5))
+                .foregroundColor(selectedTab == tab ? .purple : Color.white.opacity(0.5))
                 .padding()
         }
     }

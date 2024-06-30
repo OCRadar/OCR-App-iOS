@@ -4,7 +4,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.white]),
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
                                startPoint: .top,
                                endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
@@ -37,19 +37,19 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: CameraView()) {
-                        Text("Demo")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.purple.opacity(0.75))
-                            .cornerRadius(100)
-                            .shadow(color: Color.purple, radius: 15)
-                            .saturation(0.75)
-                            .padding(.top, -50)
-                        
-                    }
+//                    NavigationLink(destination: CameraView()) {
+//                        Text("Demo")
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .padding()
+//                            .frame(maxWidth: .infinity)
+//                            .background(Color.purple.opacity(0.75))
+//                            .cornerRadius(100)
+//                            .shadow(color: Color.purple, radius: 15)
+//                            .saturation(0.75)
+//                            .padding(.top, -50)
+//                        
+//                    }
                     .padding(.horizontal)
                     .padding(.bottom, 70)
                     
@@ -108,16 +108,16 @@ struct CardView: View {
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .padding(.bottom, 10)
             
             Text(description)
                 .font(.body)
-                .foregroundColor(.black.opacity(0.7))
+                .foregroundColor(.white.opacity(0.7))
         }
         .padding(30)
         .frame(maxWidth: .infinity)
-        .background(Color.white.opacity(0.5))
+        .background(Color.gray.opacity(0.2))
         .cornerRadius(18*2)
         
         //.shadow(color: Color.white, radius: 15)
