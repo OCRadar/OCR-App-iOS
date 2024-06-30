@@ -117,7 +117,7 @@ struct CardView: View {
         }
         .padding(30)
         .frame(maxWidth: .infinity)
-        .background(Color.gray.opacity(0.2))
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(18*2)
         
         //.shadow(color: Color.white, radius: 15)
