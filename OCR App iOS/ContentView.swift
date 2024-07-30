@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .home
+    @State private var image: UIImage? = nil
+    @State private var results: String = ""
 
     enum Tab {
         case camera
@@ -10,9 +12,9 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) { // Set spacing to 0
+        VStack(spacing: 0) {
             TabView(selection: $selectedTab) {
-                CameraView()
+                CameraView(image: $image, results: $results)
                     .tag(Tab.camera)
                 
                 HomeView()
@@ -48,7 +50,7 @@ struct ContentView: View {
             )
             .padding(.bottom, 20)
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all).opacity(1)) // Set entire background to white
+        .background(Color.black.edgesIgnoringSafeArea(.all).opacity(1))
     }
 }
 

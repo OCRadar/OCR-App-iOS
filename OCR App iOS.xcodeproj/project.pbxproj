@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1AD2FD2C59AC5D0010C715 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AD2FC2C59AC5A0010C715 /* Config.swift */; };
 		0E2938182C0FF30F002287D8 /* OCR_App_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2938172C0FF30F002287D8 /* OCR_App_iOSApp.swift */; };
 		0E29381A2C0FF30F002287D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2938192C0FF30F002287D8 /* ContentView.swift */; };
 		0E29381C2C0FF310002287D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E29381B2C0FF310002287D8 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1AD2FC2C59AC5A0010C715 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0E2938142C0FF30F002287D8 /* OCR App iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCR App iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2938172C0FF30F002287D8 /* OCR_App_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCR_App_iOSApp.swift; sourceTree = "<group>"; };
 		0E2938192C0FF30F002287D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				0E86A6012C11FABF008F00DA /* SettingsView.swift */,
 				0E4EDE862C1BBAB700D029EF /* meshAnimationTest.swift */,
 				0E86A5FF2C11FA35008F00DA /* CameraView.swift */,
+				0E1AD2FC2C59AC5A0010C715 /* Config.swift */,
 				0E50C7EF2C274EEA0077DE1A /* DiagnosisPlaceholderView.swift */,
 				0E2938162C0FF30F002287D8 /* OCR App iOS */,
 				0E2938152C0FF30F002287D8 /* Products */,
@@ -177,6 +180,7 @@
 				0E86A6002C11FA35008F00DA /* CameraView.swift in Sources */,
 				0E86A6102C133D9B008F00DA /* GlassModifier.swift in Sources */,
 				0E86A6022C11FABF008F00DA /* SettingsView.swift in Sources */,
+				0E1AD2FD2C59AC5D0010C715 /* Config.swift in Sources */,
 				0E29381A2C0FF30F002287D8 /* ContentView.swift in Sources */,
 				0E86A6062C132B7C008F00DA /* HomeView.swift in Sources */,
 				0E2938182C0FF30F002287D8 /* OCR_App_iOSApp.swift in Sources */,
