@@ -4,20 +4,12 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black, Color.black]),
                                startPoint: .top,
-                               endPoint: .center)
+                               endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(0.9)
-                    .saturation(0.75)
-                
                 
                 VStack(spacing: 20) {
-                    
-                    
-                    
-                    
                     VStack(spacing: 15) {
                         NavigationLink(destination: NotificationsView()) {
                             SettingOptionView(icon: "bell", title: "    Notifications")
@@ -37,11 +29,10 @@ struct SettingsView: View {
                         NavigationLink(destination: HelpView()) {
                             SettingOptionView(icon: "questionmark.circle", title: "    Help & Support")
                         }
-                        
                     }
                     .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(18*2)
+                    .background(Color.black.opacity(0.3))
+                    .cornerRadius(36)
                     
                     Spacer()
                 }
@@ -77,10 +68,8 @@ struct SettingOptionView: View {
         .padding(.horizontal)
         .background(Color.black.opacity(0.2))
         .cornerRadius(100)
-        //.shadow(color: .white, radius: 200, x: 0, y: 0)
     }
 }
-
 
 struct NotificationsView: View {
     @State private var enableNotifications = true
@@ -102,7 +91,6 @@ struct NotificationsView: View {
     }
 }
 
-
 struct PrivacyView: View {
     @State private var enableAnalytics = true
     @State private var enableDataCollection = false
@@ -123,7 +111,6 @@ struct PrivacyView: View {
     }
 }
 
-
 struct AboutView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -141,7 +128,6 @@ struct AboutView: View {
         .navigationBarTitle("About")
     }
 }
-
 
 struct AccountView: View {
     @State private var userName = "Aniketh Bandlamudi"
@@ -162,7 +148,6 @@ struct AccountView: View {
     }
 }
 
-
 struct AppearanceView: View {
     @State private var darkModeEnabled = true
     @State private var fontSize = 16
@@ -182,7 +167,6 @@ struct AppearanceView: View {
         .navigationBarTitle("Appearance")
     }
 }
-
 
 struct HelpView: View {
     var body: some View {
