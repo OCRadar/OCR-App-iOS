@@ -4,12 +4,10 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black, Color.black]),
                                startPoint: .top,
-                               endPoint: .center)
+                               endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(0.9)
-                    .saturation(0.75)
                 
                 VStack(spacing: 20) {
                     Text("OCRadar")
@@ -48,21 +46,16 @@ struct HomeView: View {
 //                            .shadow(color: Color.purple, radius: 15)
 //                            .saturation(0.75)
 //                            .padding(.top, -50)
-//                        
+//
 //                    }
                     .padding(.horizontal)
                     .padding(.bottom, 70)
-                    
-                    
-                    
-
                 }
                 .padding(.horizontal, 20)
             }
-            
+            .background(Color.black.edgesIgnoringSafeArea(.all))
         }
     }
-    
     
     private func cardTitle(for index: Int) -> String {
         switch index {
@@ -117,11 +110,8 @@ struct CardView: View {
         }
         .padding(30)
         .frame(maxWidth: .infinity)
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(18*2)
-        
-        //.shadow(color: Color.white, radius: 15)
-        
+        .background(Color.black.opacity(0.3))
+        .cornerRadius(36)
     }
 }
 

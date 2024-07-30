@@ -116,12 +116,14 @@ struct CameraView: View {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         if let predictions = json["predictions"] as? [[String: Any]] {
-                            self.results = predictions.map { prediction -> String in
-                                let tagName = prediction["tagName"] as? String ?? "Unknown"
-                                let probability = prediction["probability"] as? Double ?? 0.0
-                                return "\(tagName): \(String(format: "%.2f", probability * 100))%"
-                            }.joined(separator: "\n")
-                            self.debugInfo = "Results parsed successfully"
+                            if let bestPrediction = predictions.max(by: { ($0["probability"] as? Double ?? 0.0) < ($1["probability"] as? Double ?? 0.0) }) {
+                                let tagName = bestPrediction["tagName"] as? String ?? "Unknown"
+                                let probability = bestPrediction["probability"] as? Double ?? 0.0
+                                self.results = "\(tagName): \(String(format: "%.2f", probability * 100))% confidence"
+                                self.debugInfo = "Results parsed successfully"
+                            } else {
+                                self.debugInfo = "No predictions available"
+                            }
                         } else {
                             self.debugInfo = "Unable to parse prediction result"
                         }
