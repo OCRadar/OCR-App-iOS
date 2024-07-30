@@ -41,6 +41,7 @@ struct CameraView: View {
                 .font(.caption)
                 .padding()
         }
+        .background(Color.black) // Set background color to black
         .sheet(isPresented: $showingImagePicker, onDismiss: processImage) {
             ImagePicker(image: self.$image)
         }
@@ -124,8 +125,6 @@ struct CameraView: View {
         }.resume()
     }
 }
-
-// The ImagePicker struct remains unchanged
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
