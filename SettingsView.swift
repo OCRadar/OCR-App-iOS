@@ -11,9 +11,6 @@ struct SettingsView: View {
                 
                 VStack(spacing: 20) {
                     VStack(spacing: 15) {
-                        NavigationLink(destination: PrivacyView()) {
-                            SettingOptionView(icon: "lock", title: "    Privacy")
-                        }
                         NavigationLink(destination: AboutView()) {
                             SettingOptionView(icon: "info.circle", title: "    About")
                         }
@@ -62,26 +59,6 @@ struct SettingOptionView: View {
     }
 }
 
-struct PrivacyView: View {
-    @State private var enableAnalytics = true
-    @State private var enableDataCollection = false
-    
-    var body: some View {
-        Form {
-            Section(header: Text("Privacy Settings")) {
-                Toggle(isOn: $enableAnalytics) {
-                    Text("Enable Analytics")
-                }
-                
-                Toggle(isOn: $enableDataCollection) {
-                    Text("Enable Data Collection")
-                }
-            }
-        }
-        .navigationBarTitle("Privacy")
-    }
-}
-
 struct AboutView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -91,7 +68,7 @@ struct AboutView: View {
             Text("Version 1.0")
                 .foregroundColor(.gray)
             
-            Text("This version contains the foundations of OCRadar. New features will be pushed after the public release of the app.")
+            Text("Revolutionizing cancer detection with AI & ML")
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.leading)
         }
@@ -112,7 +89,7 @@ struct HelpView: View {
             Button(action: {
                 
             }) {
-                Text("support@ocradar.com")
+                Text("ocradar.contact@gmail.com")
                     .foregroundColor(.blue)
             }
         }
