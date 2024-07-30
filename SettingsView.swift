@@ -11,20 +11,11 @@ struct SettingsView: View {
                 
                 VStack(spacing: 20) {
                     VStack(spacing: 15) {
-                        NavigationLink(destination: NotificationsView()) {
-                            SettingOptionView(icon: "bell", title: "    Notifications")
-                        }
                         NavigationLink(destination: PrivacyView()) {
                             SettingOptionView(icon: "lock", title: "    Privacy")
                         }
                         NavigationLink(destination: AboutView()) {
                             SettingOptionView(icon: "info.circle", title: "    About")
-                        }
-                        NavigationLink(destination: AccountView()) {
-                            SettingOptionView(icon: "person", title: "    Account")
-                        }
-                        NavigationLink(destination: AppearanceView()) {
-                            SettingOptionView(icon: "paintbrush", title: "    Appearance")
                         }
                         NavigationLink(destination: HelpView()) {
                             SettingOptionView(icon: "questionmark.circle", title: "    Help & Support")
@@ -71,26 +62,6 @@ struct SettingOptionView: View {
     }
 }
 
-struct NotificationsView: View {
-    @State private var enableNotifications = true
-    @State private var notificationInterval = 15
-    
-    var body: some View {
-        Form {
-            Section(header: Text("Notification Settings")) {
-                Toggle(isOn: $enableNotifications) {
-                    Text("Enable Notifications")
-                }
-                
-                Stepper(value: $notificationInterval, in: 5...60, step: 5) {
-                    Text("Notification Interval: \(notificationInterval) minutes")
-                }
-            }
-        }
-        .navigationBarTitle("Notifications")
-    }
-}
-
 struct PrivacyView: View {
     @State private var enableAnalytics = true
     @State private var enableDataCollection = false
@@ -126,45 +97,6 @@ struct AboutView: View {
         }
         .padding()
         .navigationBarTitle("About")
-    }
-}
-
-struct AccountView: View {
-    @State private var userName = "Aniketh Bandlamudi"
-    @State private var email = "anikethdb1@gmail.com"
-    
-    var body: some View {
-        Form {
-            Section(header: Text("Account Information")) {
-                TextField("Username", text: $userName)
-                    .disableAutocorrection(true)
-                
-                TextField("Email", text: $email)
-                    .keyboardType(.emailAddress)
-                    .disableAutocorrection(true)
-            }
-        }
-        .navigationBarTitle("Account")
-    }
-}
-
-struct AppearanceView: View {
-    @State private var darkModeEnabled = true
-    @State private var fontSize = 16
-    
-    var body: some View {
-        Form {
-            Section(header: Text("Appearance Settings")) {
-                Toggle(isOn: $darkModeEnabled) {
-                    Text("Dark Mode")
-                }
-                
-                Stepper(value: $fontSize, in: 12...24, step: 2) {
-                    Text("Font Size: \(fontSize)")
-                }
-            }
-        }
-        .navigationBarTitle("Appearance")
     }
 }
 
