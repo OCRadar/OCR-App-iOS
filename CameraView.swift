@@ -9,41 +9,44 @@ struct CameraView: View {
     @State private var debugInfo = ""
 
     var body: some View {
-        VStack {
-            if let image = image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-            } else {
-                Text("No image selected")
-                    .foregroundColor(.white)
-            }
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all) // Set background color to black
 
-            Button("Take Photo") {
-                self.showingImagePicker = true
-            }
-            .padding()
-            .background(Color.purple)
-            .foregroundColor(.white)
-            .cornerRadius(10)
+            VStack {
+                if let image = image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Text("No image selected")
+                        .foregroundColor(.white)
+                }
 
-            if isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .purple))
-            }
-
-            Text(results)
+                Button("Take Photo") {
+                    self.showingImagePicker = true
+                }
+                .padding()
+                .background(Color.purple)
                 .foregroundColor(.white)
-                .padding()
+                .cornerRadius(10)
 
-            Text(debugInfo)
-                .foregroundColor(.red)
-                .font(.caption)
-                .padding()
-        }
-        .background(Color.black) // Set background color to black
-        .sheet(isPresented: $showingImagePicker, onDismiss: processImage) {
-            ImagePicker(image: self.$image)
+                if isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .purple))
+                }
+
+                Text(results)
+                    .foregroundColor(.white)
+                    .padding()
+
+                Text(debugInfo)
+                    .foregroundColor(.red)
+                    .font(.caption)
+                    .padding()
+            }
+            .sheet(isPresented: $showingImagePicker, onDismiss: processImage) {
+                ImagePicker(image: self.$image)
+            }
         }
     }
 
@@ -59,15 +62,19 @@ struct CameraView: View {
 
     func sendImageToAzure(image: UIImage) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-            debugInfo = "Failed to convert image to data"
-            isLoading = false
+            DispatchQueue.main.async {
+                self.debugInfo = "Failed to convert image to data"
+                self.isLoading = false
+            }
             return
         }
 
         let urlString = "\(Config.endpoint)customvision/v3.0/Prediction/\(Config.projectID)/classify/iterations/\(Config.publishedModelName)/image"
         guard let url = URL(string: urlString) else {
-            debugInfo = "Invalid URL"
-            isLoading = false
+            DispatchQueue.main.async {
+                self.debugInfo = "Invalid URL"
+                self.isLoading = false
+            }
             return
         }
 
@@ -77,7 +84,9 @@ struct CameraView: View {
         request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
         request.httpBody = imageData
 
-        debugInfo = "Sending request to Azure..."
+        DispatchQueue.main.async {
+            self.debugInfo = "Sending request to Azure..."
+        }
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
@@ -106,12 +115,13 @@ struct CameraView: View {
 
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        self.debugInfo = "Received JSON: \(json)"
-                        if let predictions = json["predictions"] as? [[String: Any]],
-                           let topPrediction = predictions.first,
-                           let tagName = topPrediction["tagName"] as? String,
-                           let probability = topPrediction["probability"] as? Double {
-                            self.results = "\(tagName) (\(String(format: "%.2f", probability * 100))%)"
+                        if let predictions = json["predictions"] as? [[String: Any]] {
+                            self.results = predictions.map { prediction -> String in
+                                let tagName = prediction["tagName"] as? String ?? "Unknown"
+                                let probability = prediction["probability"] as? Double ?? 0.0
+                                return "\(tagName): \(String(format: "%.2f", probability * 100))%"
+                            }.joined(separator: "\n")
+                            self.debugInfo = "Results parsed successfully"
                         } else {
                             self.debugInfo = "Unable to parse prediction result"
                         }
