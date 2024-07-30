@@ -77,11 +77,11 @@ struct HomeView: View {
     private func cardDescription(for index: Int) -> String {
         switch index {
         case 0:
-            return "Welcome to the Developer Alpha of OCRadar. We strive to facilitate the detection of Oral Cancer in our users. Please note that this is a pre-release internal alpha version. Features and results are NOT finalized."
+            return "Welcome to OCRadar. We strive to facilitate the detection of Oral Cancer in our users. Please note that the results are not 100% accurate, please consult with a medical professional."
         case 1:
             return "Discover the key features of OCRadar. The Camera tab is the heart of the app. It is home to the picture taking, and AI processing features. After a scan, you will be given a result."
         case 2:
-            return "This version contains the foundations of OCRadar. New features will be pushed after the public release of the app."
+            return "This version contains the first release of OCRadar. Additional features will arrive in future updates."
         case 3:
             return "OCRadar features 3 main tabs. The home tab shows basic information. The settings tab houses all app settings, account data, and results. The camera tab is where you will take/upload pictures and receive a result."
         case 4:
