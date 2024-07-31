@@ -10,7 +10,7 @@ struct CameraView: View {
 
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all) // Set background color to black
+            Color.black.edgesIgnoringSafeArea(.all)
 
             VStack {
                 if let image = image {
@@ -20,6 +20,8 @@ struct CameraView: View {
                 } else {
                     Text("No image selected")
                         .foregroundColor(.white)
+                        .bold()
+                        
                 }
 
                 Button("Take Photo") {
@@ -29,6 +31,19 @@ struct CameraView: View {
                 .background(Color.purple)
                 .foregroundColor(.white)
                 .cornerRadius(100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 100)
+                        .stroke(
+                            LinearGradient(gradient: Gradient(stops: [
+                                .init(color: Color.white.opacity(0.1), location: 0),
+                                .init(color: Color.white.opacity(0.3), location: 0.2),
+                                .init(color: Color.white.opacity(0.6), location: 0.5),
+                                .init(color: Color.white.opacity(0.3), location: 0.8),
+                                .init(color: Color.white.opacity(0.1), location: 1)
+                            ]), startPoint: .topLeading, endPoint: .bottomTrailing),
+                            lineWidth: 1
+                        )
+                )
 
                 if isLoading {
                     ProgressView()
