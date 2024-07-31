@@ -28,7 +28,7 @@ struct CameraView: View {
                 .padding()
                 .background(Color.purple)
                 .foregroundColor(.white)
-                .cornerRadius(10)
+                .cornerRadius(100)
 
                 if isLoading {
                     ProgressView()
@@ -85,7 +85,7 @@ struct CameraView: View {
         request.httpBody = imageData
 
         DispatchQueue.main.async {
-            self.debugInfo = "Sending request to Azure..."
+            self.debugInfo = "Sending request to server..."
         }
 
         URLSession.shared.dataTask(with: request) { data, response, error in

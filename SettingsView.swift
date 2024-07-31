@@ -27,6 +27,8 @@ struct SettingsView: View {
                 .padding()
             }
             .navigationTitle("Settings")
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 }
