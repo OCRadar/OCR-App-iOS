@@ -1,6 +1,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    init() {
+            // Customize navigation bar appearance
+            let appearance = UINavigationBarAppearance()
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            // Apply the appearance settings to the navigation bar
+            UINavigationBar.appearance().standardAppearance = appearance
+            //UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     var body: some View {
         NavigationView {
             ZStack {
@@ -19,7 +29,7 @@ struct SettingsView: View {
                         }
                     }
                     .padding()
-                    .background(Color.black.opacity(0.3))
+                    // .background(Color.black.opacity(0.3))
                     .cornerRadius(36)
                     
                     Spacer()
@@ -58,6 +68,19 @@ struct SettingOptionView: View {
         .padding(.horizontal)
         .background(Color.black.opacity(0.2))
         .cornerRadius(100)
+        .overlay(
+            RoundedRectangle(cornerRadius: 100)
+                .stroke(
+                    LinearGradient(gradient: Gradient(stops: [
+                        .init(color: Color.white.opacity(0.1), location: 0),
+                        .init(color: Color.white.opacity(0.3), location: 0.2),
+                        .init(color: Color.white.opacity(0.6), location: 0.5),
+                        .init(color: Color.white.opacity(0.3), location: 0.8),
+                        .init(color: Color.white.opacity(0.1), location: 1)
+                    ]), startPoint: .topLeading, endPoint: .bottomTrailing),
+                    lineWidth: 1
+                )
+        )
     }
 }
 
