@@ -28,25 +28,30 @@ struct ContentView: View {
             Spacer()
             
             HStack {
-                Spacer()
-                
                 TabBarButton(systemImage: "camera", tab: .camera, selectedTab: $selectedTab)
-                Spacer()
-                
                 TabBarButton(systemImage: "house", tab: .home, selectedTab: $selectedTab)
-                Spacer()
-                
                 TabBarButton(systemImage: "gear", tab: .settings, selectedTab: $selectedTab)
-                Spacer()
             }
+            .frame(width: 300)
             .padding(.vertical, 10)
             .background(
                 RoundedRectangle(cornerRadius: 100)
                     .foregroundColor(.black)
                     .frame(height: 70)
-                    .shadow(color: Color.purple, radius: 50)
-                    .padding(.horizontal, 20)
-                    .opacity(0.5)
+                    .shadow(color: Color.purple, radius: 75)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 100)
+                            .stroke(
+                                LinearGradient(gradient: Gradient(stops: [
+                                    .init(color: Color.white.opacity(0.1), location: 0),
+                                    .init(color: Color.white.opacity(0.3), location: 0.2),
+                                    .init(color: Color.white.opacity(0.6), location: 0.5),
+                                    .init(color: Color.white.opacity(0.3), location: 0.8),
+                                    .init(color: Color.white.opacity(0.1), location: 1)
+                                ]), startPoint: .topLeading, endPoint: .bottomTrailing),
+                                lineWidth: 1
+                            )
+                    )
             )
             .padding(.bottom, 20)
         }
