@@ -2,14 +2,14 @@ import SwiftUI
 
 struct SettingsView: View {
     init() {
-            // Customize navigation bar appearance
+            
             let appearance = UINavigationBarAppearance()
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             
-            // Apply the appearance settings to the navigation bar
+            
             UINavigationBar.appearance().standardAppearance = appearance
-            //UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            
         }
     var body: some View {
         NavigationView {
@@ -29,7 +29,7 @@ struct SettingsView: View {
                         }
                     }
                     .padding()
-                    // .background(Color.black.opacity(0.3))
+                    
                     .cornerRadius(36)
                     
                     Spacer()
