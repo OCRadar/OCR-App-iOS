@@ -14,7 +14,7 @@ struct HomeView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.top, 100)
+                        .padding(.top, 150)
                         
                     Image("ocrnew")
                         .resizable()
