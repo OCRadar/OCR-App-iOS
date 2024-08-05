@@ -77,7 +77,7 @@ struct HomeView: View {
     private func cardDescription(for index: Int) -> String {
         switch index {
         case 0:
-            return "Welcome to OCRadar. We strive to facilitate the detection of Oral Cancer in our users. Please note that results are not 100% accurate. Consult with a medical professional regarding any concerns."
+            return "Please note that results are not 100% accurate. Consult with a medical professional regarding any concerns."
         case 1:
             return "Discover the key features of OCRadar. The Camera tab is the heart of the app. It is home to the picture taking, and AI processing features. After a scan, you will be given a result."
         case 2:
